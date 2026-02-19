@@ -18,7 +18,8 @@ screens:
 screens:
 
 * HomeScreen
-* PopularList
+* SeeAllItemsScreen
+* FoodDetailScreen
 * CartScreen
 * CheckoutScreen
 <img width="1536" height="1024" alt="ChatGPT Image Feb 18, 2026, 11_00_23 AM" src="https://github.com/user-attachments/assets/b2cd6447-1a54-4c0e-8112-2b0a8e2d8931" />
