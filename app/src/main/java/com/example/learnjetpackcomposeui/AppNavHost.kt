@@ -16,6 +16,8 @@ import com.example.learnjetpackcomposeui.UiDesigns.SimpleLoginRegisterApp.Regist
 import com.example.learnjetpackcomposeui.UiDesigns.SimpleLoginRegisterApp.ResetPasswordScreen
 import com.example.learnjetpackcomposeui.UiDesigns.SimpleLoginRegisterApp.StartScreen
 import com.example.learnjetpackcomposeui.UiDesigns.SimpleLoginRegisterApp.VerifyCodeScreen
+import com.example.learnjetpackcomposeui.UiDesigns.TravelBookingUI.DestinationDetailScreen
+import com.example.learnjetpackcomposeui.UiDesigns.TravelBookingUI.TravelDashboard
 
 @Composable
 fun AppNavHost(
@@ -24,8 +26,10 @@ fun AppNavHost(
 
     NavHost(
         navController = navController,
-        startDestination = "start"
+        startDestination = "travelDashboardScreen"
     ) {
+
+//       todo ----------------------------- Login & Register App -------------------------------------
 
         // --- Start Screen ---
         composable("start") {
@@ -51,6 +55,8 @@ fun AppNavHost(
         composable("VerifyCodeScreen") {
             VerifyCodeScreen(navController = navController)
         }
+
+//       todo ----------------------------- Food App -------------------------------------
 
         // --- Dashboard Screen ---
         composable("dashboard") {
@@ -94,6 +100,19 @@ fun AppNavHost(
             val itemId = backStackEntry.arguments?.getInt("itemId")
 
             FoodDetailScreen(navController,itemId)
+        }
+
+
+//       todo ----------------------------- Travel App -------------------------------------
+
+        // --- Travel Dashboard Screen ---
+        composable("travelDashboardScreen") {
+            TravelDashboard(navController = navController)
+        }
+
+        // --- MyBookings Screen ---
+        composable("destinationDetailScreen") {
+            DestinationDetailScreen(navController)
         }
 
     }

@@ -18,7 +18,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.FavoriteBorder
@@ -41,12 +40,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.learnjetpackcomposeui.R
-import com.example.learnjetpackcomposeui.UiDesigns.FoodMenuApp.model.PopularItemModel
+import com.example.learnjetpackcomposeui.UiDesigns.ListsData
 import com.example.learnjetpackcomposeui.ui.theme.*
 
 @Composable
@@ -57,7 +55,7 @@ fun FoodDetailScreen(navController: NavController, itemId: Int?) {
             .background(color = white)
             .fillMaxSize()
     ) {
-        val selectedItem = FoodData.popularItemList.find { it.id == itemId }
+        val selectedItem = ListsData.popularItemList.find { it.id == itemId }
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -68,7 +66,6 @@ fun FoodDetailScreen(navController: NavController, itemId: Int?) {
             // 🔹 Background Image
             Image(
                 painter = painterResource(id = selectedItem?.img ?: R.drawable.photo1jpg),
-//                painter = painterResource(id =  com.example.learnjetpackcomposeui.R.drawable.photo1jpg),
                 contentDescription = "Item Image",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.matchParentSize()

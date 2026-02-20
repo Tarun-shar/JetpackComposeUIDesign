@@ -1,7 +1,6 @@
 package com.example.learnjetpackcomposeui.UiDesigns.FoodMenuApp
 
 import android.net.Uri
-import android.widget.Scroller
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -45,29 +44,23 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.learnjetpackcomposeui.R
 import com.example.learnjetpackcomposeui.UiDesigns.FoodMenuApp.model.PopularItemModel
 import com.example.learnjetpackcomposeui.ui.theme.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Divider
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.TextButton
 import androidx.navigation.NavController
-import com.example.learnjetpackcomposeui.UiDesigns.FoodMenuApp.FoodData.popularItemList
-import com.example.learnjetpackcomposeui.UiDesigns.FoodMenuApp.FoodData.suggestedItemList
+import com.example.learnjetpackcomposeui.UiDesigns.ListsData.popularItemList
+import com.example.learnjetpackcomposeui.UiDesigns.ListsData.suggestedItemList
 import com.example.learnjetpackcomposeui.UiDesigns.FoodMenuApp.model.SuggestedItemModel
+import com.example.learnjetpackcomposeui.UiDesigns.ListsData.categories
 
 
 @Composable
 fun HomeScreen(navController: NavController) {
 
-    val categories = listOf(
-        "All", "Pizza", "Burger", "Drinks", "Dessert", "Chinese"
-    )
+
 
 
     var selectedCategory by remember { mutableStateOf(0) }
