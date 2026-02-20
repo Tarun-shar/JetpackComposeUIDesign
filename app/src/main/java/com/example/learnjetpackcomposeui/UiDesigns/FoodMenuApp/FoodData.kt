@@ -38,6 +38,7 @@ object FoodData {
 
         )
 
+
     val cartItemList = listOf(
         PopularItemModel(0, R.drawable.photo1jpg, "Cheese Burger", R.drawable.baseline_star_24, "Rs. 412"),
         PopularItemModel(1, R.drawable.photo1jpg, "Veg Pizza", R.drawable.baseline_star_24, "Rs. 310"),
