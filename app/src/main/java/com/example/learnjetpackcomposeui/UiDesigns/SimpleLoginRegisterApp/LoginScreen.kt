@@ -237,7 +237,8 @@ fun LoginScreen(navController: NavHostController) {
                         containerColor = darkBlueColor
                     ),
                     shape = RoundedCornerShape(13.dp)
-                ) {
+                )
+                {
                     Text(
                         text = "Login",
                         color = colorResource(id = R.color.white),

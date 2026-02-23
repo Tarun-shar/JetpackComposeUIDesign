@@ -3,6 +3,7 @@ package com.example.learnjetpackcomposeui.UiDesigns
 import com.example.learnjetpackcomposeui.R
 import com.example.learnjetpackcomposeui.UiDesigns.FoodMenuApp.model.PopularItemModel
 import com.example.learnjetpackcomposeui.UiDesigns.FoodMenuApp.model.SuggestedItemModel
+import com.example.learnjetpackcomposeui.UiDesigns.TravelBookingUI.model.FlightModel
 import com.example.learnjetpackcomposeui.UiDesigns.TravelBookingUI.model.PlacesModel
 
 object ListsData {
@@ -301,5 +302,14 @@ object ListsData {
 
     val travelCategory = listOf(
         "Flight", "Travel", "Hotel"
+    )
+
+
+    val flightsList = listOf(
+        FlightModel(R.drawable.spicejet,"SpiceJet","10:30 PM","06:20 AM","Non Stop","07h 40m","$850"),
+        FlightModel(R.drawable.airindia,"AirIndia","10:30 AM","06:20 PM","1 Stop","07h 40m","$1200"),
+        FlightModel(R.drawable.vistara,"Vistara","10:30 PM","06:20 AM","3 Stop","07h 40m","$2780"),
+        FlightModel(R.drawable.emirates,"Emirated","10:30 PM","06:20 AM","Non Stop","07h 40m","$1500"),
+        FlightModel(R.drawable.spicejet,"SpiceJet","10:30 PM","06:20 AM","Non Stop","07h 40m","$850")
     )
 }
