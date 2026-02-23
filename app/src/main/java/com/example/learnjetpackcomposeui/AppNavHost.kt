@@ -26,7 +26,7 @@ fun AppNavHost(
 
     NavHost(
         navController = navController,
-        startDestination = "travelDashboardScreen"
+        startDestination = "start"
     ) {
 
 //       todo ----------------------------- Login & Register App -------------------------------------

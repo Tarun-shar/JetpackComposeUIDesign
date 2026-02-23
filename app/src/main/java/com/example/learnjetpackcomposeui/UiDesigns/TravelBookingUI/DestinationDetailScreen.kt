@@ -105,14 +105,14 @@ fun DestinationDetailScreen(navController: NavHostController) {
                     )
                 }
 
-                Text(
+                /*Text(
                     text = "Destination Detail",
                     fontSize = 20.sp,
                     modifier = Modifier
                         .weight(1f)
                         .fillMaxWidth(),
                     textAlign = TextAlign.Center
-                )
+                )*/
                 // Favorite Icon
                 IconButton(onClick = { }) {
                     Icon(

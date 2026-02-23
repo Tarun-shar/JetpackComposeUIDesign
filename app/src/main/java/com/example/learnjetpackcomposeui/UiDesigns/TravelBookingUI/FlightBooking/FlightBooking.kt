@@ -207,7 +207,7 @@ fun FlightBooking() {
                 shape = RoundedCornerShape(13.dp)
             ) {
                 Text(
-                    text = "Login",
+                    text = "Continue",
                     color = colorResource(id = R.color.white),
                     fontSize = 16.sp,
                     modifier = Modifier.padding(vertical = 8.dp)
