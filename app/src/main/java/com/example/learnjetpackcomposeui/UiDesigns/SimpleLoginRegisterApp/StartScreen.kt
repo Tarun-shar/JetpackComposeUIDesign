@@ -68,6 +68,28 @@ fun StartScreen(navController: NavHostController) {
         Column(modifier = Modifier.padding(start = 20.dp, end = 20.dp, bottom = 30.dp)) {
             Button(
                 onClick = {
+                    navController.navigate("apiCalling")
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = darkBlueColor
+                ),
+                shape = RoundedCornerShape(13.dp)
+            ) {
+                Text(
+                    text = "Api Calling..",
+                    color = colorResource(id = R.color.white),
+                    fontSize = 16.sp,
+                    modifier = Modifier.padding(vertical = 8.dp)
+                )
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Button(
+                onClick = {
                     navController.navigate("dashboard")
                 },
                 modifier = Modifier
