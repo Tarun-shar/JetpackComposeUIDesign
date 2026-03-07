@@ -36,3 +36,21 @@ screens:
 * FlightBookingScreen
 <img width="1536" height="1024" alt="Travel booking app interface preview" src="https://github.com/user-attachments/assets/ad7f7369-1f94-4a8e-a9c6-64f37bb72125" />
 
+
+---
+
+## 🌐↗️API Calling using MVVM, Coroutines, Stateflow, Retrofit
+
+* In ApiCalling Module 🌐↗️
+<img width="1599" height="865" alt="image" src="https://github.com/user-attachments/assets/c4ae975d-8a51-4861-b312-a4e7676fad03" />
+
+
+---
+
+## 🌐↗️API Calling using MVVM, Coroutines, Stateflow, Retrofit, Dependency Injection (Hilt)
+
+* In ApiCallingDI Module 🌐↗️
+
+<img width="1524" height="860" alt="Screenshot 2026-03-07 140616" src="https://github.com/user-attachments/assets/14d44f3d-d71c-4f16-83f4-6d57e4f6f0b3" />
+
+
