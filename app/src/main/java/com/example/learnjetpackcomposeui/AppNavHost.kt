@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.learnjetpackcomposeui.ApiCalling.screen.ShowApiData
+import com.example.learnjetpackcomposeui.ApiCallingDI.mvvm.UserScreen
 import com.example.learnjetpackcomposeui.UiDesigns.FoodMenuApp.CheckoutScreen
 import com.example.learnjetpackcomposeui.UiDesigns.FoodMenuApp.DashboardScreen
 import com.example.learnjetpackcomposeui.UiDesigns.FoodMenuApp.FoodDetailScreen
@@ -120,6 +121,10 @@ fun AppNavHost(
 //       todo ----------------------------- Api Calling App -------------------------------------
         composable("apiCalling") {
              ShowApiData()
+        }
+
+        composable("UserScreen") {
+            UserScreen()
         }
 
     }
