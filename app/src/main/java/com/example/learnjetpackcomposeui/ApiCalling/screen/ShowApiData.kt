@@ -15,6 +15,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -34,56 +35,40 @@ fun ShowApiData(viewmodel: MainViewmodel = viewModel()) {
 
     val context = LocalContext.current
 
-    var posts by remember { mutableStateOf<List<PostModel>>(emptyList()) }
-    var isLoading by remember { mutableStateOf(true) }
+    // 🔥 Observe StateFlow
+    val state by viewmodel.state.collectAsState()
 
-    LaunchedEffect(Unit) {
+    when (state) {
 
-        viewmodel.fetchPosts()
+        is UiState.Loading -> {
 
-        viewmodel.state.collect { state ->
-            when (state) {
-                is UiState.Loading -> {
-                    // Show loading indicator
-                    isLoading = true
-                }
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator()
+            }
+        }
 
-                is UiState.Success -> {
-                    isLoading = false
-                    posts = state.data
+        is UiState.Success -> {
 
-                }
+            val posts = (state as UiState.Success).data
 
-                is UiState.Error -> {
-                    isLoading = false
-                    // Show error message
-                    Toast.makeText(context, state.message, Toast.LENGTH_SHORT).show()
+            LazyColumn {
+
+                items(posts) { post ->
+                    PostItem(post)
                 }
             }
         }
 
+        is UiState.Error -> {
 
-    }
+            val message = (state as UiState.Error).message
 
-    if(isLoading){
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            CircularProgressIndicator()
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
         }
     }
-    else{
-        LazyColumn {
-
-            items(posts) { post ->
-
-                PostItem(post)
-
-            }
-        }
-    }
-
 }
 
 @Composable

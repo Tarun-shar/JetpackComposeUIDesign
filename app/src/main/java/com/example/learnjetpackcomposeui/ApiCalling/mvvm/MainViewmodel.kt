@@ -4,61 +4,69 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.learnjetpackcomposeui.ApiCalling.mvvm.UiStates.UiState
 import com.example.learnjetpackcomposeui.ApiCalling.mvvm.UiStates.UserUiState
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class MainViewmodel: ViewModel() {
+class MainViewmodel : ViewModel() {
 
     private val repository = MainRepository()
 
-    private val _state = MutableSharedFlow<UiState>()
-    val state = _state.asSharedFlow()
+    // 🔹 Posts UI State
+    private val _state = MutableStateFlow<UiState>(UiState.Loading)
+    val state: StateFlow<UiState> = _state
 
 
-    private val _userState = MutableSharedFlow<UserUiState>()
-    val userState = _userState.asSharedFlow()
+    // 🔹 Users UI State
+    private val _userState = MutableStateFlow<UserUiState>(UserUiState.Loading)
+    val userState: StateFlow<UserUiState> = _userState
 
+
+    init {
+        fetchPosts()
+    }
+
+
+    // 🔹 Fetch Posts
     fun fetchPosts() {
 
         viewModelScope.launch {
 
-            _state.emit(UiState.Loading)
+            _state.value = UiState.Loading
 
             try {
 
                 val result = repository.getPosts()
 
-                _state.emit(UiState.Success(result))
+                _state.value = UiState.Success(result)
 
             } catch (e: Exception) {
 
-                _state.emit(UiState.Error(e.message ?: "Unknown Error"))
+                _state.value = UiState.Error(e.message ?: "Unknown Error")
 
             }
         }
     }
 
 
+    // 🔹 Fetch Users
     fun fetchUsers() {
 
         viewModelScope.launch {
 
-            _userState.emit(UserUiState.Loading)
+            _userState.value = UserUiState.Loading
 
             try {
 
                 val result = repository.getUsers()
 
-                _userState.emit(UserUiState.Success(result))
+                _userState.value = UserUiState.Success(result)
 
             } catch (e: Exception) {
 
-                _userState.emit(UserUiState.Error(e.message ?: "Error"))
+                _userState.value = UserUiState.Error(e.message ?: "Error")
 
             }
-
         }
-
     }
 }
